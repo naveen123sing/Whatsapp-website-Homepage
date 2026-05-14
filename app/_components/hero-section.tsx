@@ -1,4 +1,4 @@
-import { Check, MessageCircle, Sparkles, TrendingUp } from "./icon";
+import { Check, ExternalLink, MessageCircle, Sparkles, TrendingUp, VerifiedBadge } from "./icon";
 
 export function HeroSection() {
   return (
@@ -61,24 +61,54 @@ export function HeroSection() {
           <div className="relative z-10 w-70 h-140 bg-black border-8 border-gray-800 rounded-[40px] overflow-hidden shadow-2xl animate-phone">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-black rounded-b-2xl z-20"></div>
 
-            <div className="h-full bg-[#0f1119] p-4 flex flex-col justify-between">
-              <div className="space-y-4 mt-10">
-                <div className="bg-[#1f2c34] p-3 rounded-xl rounded-tl-none w-fit max-w-[80%]">
-                  <p className="text-sm">Welcome!</p>
-                </div>
-
-                <div className="bg-[#005c4b] p-3 rounded-xl rounded-tr-none ml-auto w-fit max-w-[80%]">
-                  <p className="text-sm">Hi there!</p>
-                </div>
-              </div>
-
-              <div className="flex justify-center">
-                <div className="w-28 h-28 bg-[#25D366] rounded-3xl flex items-center justify-center shadow-lg">
-                  <MessageCircle className="w-14 h-14 text-white" />
+            <div className="h-full bg-[#0f1119] flex flex-col justify-between">
+              <div className="h-18 bg-[#ffffff] px-4 pt-7 pb-3 flex items-center justify-between border-b border-white/10">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-[#25D366] flex items-center justify-center text-white font-bold text-sm shadow-lg">
+                    C
+                  </div>
+                  <div className="flex items-center gap-1">  
+                    <span className="text-sm font-medium text-black">Compucom</span>  
+                    <VerifiedBadge className="w-4 h-4 text-[#53BDEB] fill-[#53BDEB]" /></div>
                 </div>
               </div>
 
-              <div className="bg-[#1f2c34] rounded-full px-4 py-3 flex items-center gap-2">
+              <div className="space-y-4">
+                <div className="bg-white rounded-xl rounded-tl-none overflow-hidden shadow-sm mx-auto" style={{ maxWidth: 240 }}>
+                  <img
+                    src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=300&q=80"
+                    alt="preview"
+                    className="w-100"
+                    style={{
+                      height: 130,
+                      objectFit: "cover",
+                      display: "block",
+                    }}
+                  />
+                  <div className="p-3">
+                    <p className="mb-2 text-black small fw-medium">
+                      Hey there! Check out our fresh groceries now!
+                    </p>
+                    <p className="mb-0 text-black small">
+                      Use code <strong>HEALTH</strong> to get
+                      additional 10% off on your entire purchase.
+                    </p>
+                  </div>
+                  <div className="border-t border-gray-200">
+                    <button className="chatBtn ">
+                      <ExternalLink className="w-5 h-5" />
+                      Shop now
+                    </button>
+
+                    <button className="chatBtn border-t border-gray-200">
+                      <ExternalLink className="w-5 h-5" />
+                      Visit Site
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-[#1f2c34] rounded-full m-3 px-4 py-3 flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse"></div>
                 <span className="text-sm text-gray-400">Typing...</span>
               </div>
@@ -112,6 +142,6 @@ export function HeroSection() {
           </div>
         </div>
       </div>
-    </section>
+    </section >
   );
 }

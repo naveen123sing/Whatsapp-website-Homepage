@@ -20,8 +20,7 @@ export default function Home() {
         <TrustedSection />
         <DashboardSection />
         <FeaturesSection />
-        {/* PRICING SECTION */}
-        <section className="py-24 px-6">
+        <section className="py-24 px-6" id="pricing">
           <div className="text-center mb-12 animate-fade-up">
             <h2 className="text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>
 

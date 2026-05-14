@@ -163,3 +163,39 @@ export function Clock(props: IconProps) {
     </SvgIcon>
   );
 }
+
+export function ExternalLink(props: IconProps) {
+  return (
+    <SvgIcon {...props}>
+      <path d="M13 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8" />
+      <path d="M10 14 21 3" />
+      <path d="M15 3h6v6" />
+    </SvgIcon>
+  );
+}
+
+export function VerifiedBadge(props: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      {...props}
+    >
+      <path
+        d="M12 1.5L14.694 3.14L17.84 2.678L19.057 5.593L21.972 6.81L21.51 9.956L23.15 12L21.51 14.044L21.972 17.19L19.057 18.407L17.84 21.322L14.694 20.86L12 22.5L9.306 20.86L6.16 21.322L4.943 18.407L2.028 17.19L2.49 14.044L0.85 12L2.49 9.956L2.028 6.81L4.943 5.593L6.16 2.678L9.306 3.14L12 1.5Z"
+        fill="#2CB3F0"
+      />
+      <path
+        d="M8 12.5L10.7 15.2L16.5 9.4"
+        stroke="white"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+

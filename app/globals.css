@@ -1104,3 +1104,17 @@
       inset 0 0 40px rgba(37, 211, 102, 0.12);
   }
 } */
+
+.chatBtn {
+  width: 100%;
+  background: white;
+  padding: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #339121;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
