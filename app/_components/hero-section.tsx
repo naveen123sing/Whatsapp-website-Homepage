@@ -1,4 +1,4 @@
-import { Check, ExternalLink, MessageCircle, Sparkles, TrendingUp, VerifiedBadge } from "./icon";
+import { Check, ExternalLink, Sparkles, TrendingUp, VerifiedBadge } from "./icon";
 
 export function HeroSection() {
   return (
@@ -75,6 +75,7 @@ export function HeroSection() {
 
               <div className="space-y-4">
                 <div className="bg-white rounded-xl rounded-tl-none overflow-hidden shadow-sm mx-auto" style={{ maxWidth: 240 }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=300&q=80"
                     alt="preview"

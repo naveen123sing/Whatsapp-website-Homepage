@@ -10,7 +10,7 @@ interface PricingCardProps {
     delay?: number;
 }
 
-export function PricingCard({ name, price, period, features, highlighted = false, delay = 0 }: PricingCardProps) {
+export function PricingCard({ name, price, period, features, highlighted = false }: PricingCardProps) {
     return (
         <>
             <div

@@ -2,6 +2,7 @@ import { AnimatedBackground } from "./_components/animated-background";
 import { CtaSection } from "./_components/cta-section";
 import { DashboardSection } from "./_components/dashboard-section";
 import { FaqSection } from "./_components/faq-section";
+import { FeatureCSection } from "./_components/featurecontant-section";
 import { FeaturesSection } from "./_components/features-section";
 import { HeroSection } from "./_components/hero-section";
 import { Navbar } from "./_components/navbar";
@@ -11,7 +12,7 @@ import { TrustedSection } from "./_components/trusted-section";
 
 export default function Home() {
   return (
-    <main className="site-scene relative min-h-screen text-white overflow-hidden">
+    <main className="site-scene relative min-h-screen text-white overflow-x-hidden">
       <AnimatedBackground />
 
       <div className="relative z-10">
@@ -19,6 +20,7 @@ export default function Home() {
         <HeroSection />
         <TrustedSection />
         <DashboardSection />
+        <FeatureCSection />
         <FeaturesSection />
         <section className="py-24 px-6" id="pricing">
           <div className="text-center mb-12 animate-fade-up">
