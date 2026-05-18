@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { BarChart3, Bot, Check, MessageCircle } from "./icon";
 
@@ -12,6 +13,7 @@ const featuresData = [
       "Automate your WhatsApp business with smart replies, broadcasts, and follow-ups that feel personal.",
     features: ["Auto Reply", "Bulk Messaging", "Analytics Dashboard"],
     tone: "green",
+    image: "/campaign-manager.png",
   },
   {
     icon: Bot,
@@ -21,6 +23,7 @@ const featuresData = [
       "Manage every customer chat with your team in one clean inbox, without losing context.",
     features: ["Shared Inbox", "Assign Chats", "Live Sync"],
     tone: "blue",
+    image: "/whatsapp-form.png",
   },
   {
     icon: BarChart3,
@@ -28,8 +31,9 @@ const featuresData = [
     eyebrow: "Performance clarity",
     description:
       "Track campaign growth, engagement, and conversion signals while your WhatsApp flows run.",
-    features: ["Conversion Reports", "Growth Tracking", "Campaign Insights"],
+    features: ["Conversion Reports", "AI-Powered Template Creation", "Quick Customization", "high-converting message templates", "Campaign Insights"],
     tone: "purple",
+    image: "/template-manager-ai.png",
   },
 ] as const;
 
@@ -136,9 +140,14 @@ export function FeatureCSection() {
                       <span>{feature.eyebrow}</span>
                     </div>
 
-                    <h3 className="mt-6 text-4xl font-bold text-white">
-                      {feature.title}
-                    </h3>
+                    <h5 className="mt-6 text-3xl font-bold">
+                      <span className="bg-[linear-gradient(90deg,#86efac_0%,#22c55e_45%,#ffffff_100%)] bg-clip-text text-transparent">
+                        {feature.title.slice(0, 5)}
+                      </span>
+                      <span className="text-white">
+                        {feature.title.slice(5)}
+                      </span>
+                    </h5>
 
                     <p className="mt-4 text-lg leading-8 text-gray-400">
                       {feature.description}
@@ -158,14 +167,21 @@ export function FeatureCSection() {
 
                   <div className="feature-scroll-visual">
                     <div className="feature-scroll-glow"></div>
-                    <div className="feature-scroll-radar">
+                    {/* <div className="feature-scroll-radar">
                       <span></span>
                       <span></span>
                       <span></span>
-                    </div>
+                    </div> */}
 
-                    <div className="feature-scroll-icon">
-                      <Icon className="h-16 w-16" />
+                    <div className="feature-scroll-preview-shell">
+                      <Image
+                        src={feature.image}
+                        alt={feature.title}
+                        width={1536}
+                        height={1024}
+                        className="feature-scroll-image"
+                        sizes="(max-width: 768px) 92vw, (max-width: 1280px) 48vw, 610px"
+                      />
                     </div>
                   </div>
                 </div>
