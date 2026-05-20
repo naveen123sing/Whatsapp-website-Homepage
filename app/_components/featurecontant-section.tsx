@@ -11,9 +11,9 @@ const featuresData = [
     eyebrow: "Smart conversations",
     description:
       "Automate your WhatsApp business with smart replies, broadcasts, and follow-ups that feel personal.",
-    features: ["Auto Reply", "Bulk Messaging", "Analytics Dashboard"],
+    features: ["Smart Campaign Automation", "Real-Time Message Preview", "Bulk campaign broadcasting", "Analytics Dashboard", "Secure Messaging Platform"],
     tone: "green",
-    image: "/campaign-manager.png",
+    image: "/featuresectionimg/campignimg.png",
   },
   {
     icon: Bot,
@@ -23,7 +23,7 @@ const featuresData = [
       "Manage every customer chat with your team in one clean inbox, without losing context.",
     features: ["Shared Inbox", "Assign Chats", "Live Sync"],
     tone: "blue",
-    image: "/whatsapp-form.png",
+    image: "/featuresectionimg/whatsworkflow.png",
   },
   {
     icon: BarChart3,
@@ -33,7 +33,7 @@ const featuresData = [
       "Track campaign growth, engagement, and conversion signals while your WhatsApp flows run.",
     features: ["Conversion Reports", "AI-Powered Template Creation", "Quick Customization", "high-converting message templates", "Campaign Insights"],
     tone: "purple",
-    image: "/template-manager-ai.png",
+    image: "/featuresectionimg/Tamplateimg.png",
   },
 ] as const;
 
@@ -179,8 +179,11 @@ export function FeatureCSection() {
                         alt={feature.title}
                         width={1536}
                         height={1024}
+                        quality={95}
+                        priority
+                        unoptimized
                         className="feature-scroll-image"
-                        sizes="(max-width: 768px) 92vw, (max-width: 1280px) 48vw, 610px"
+                        sizes="(max-width: 768px) 92vw, (max-width: 1280px) 48vw, 700px"
                       />
                     </div>
                   </div>

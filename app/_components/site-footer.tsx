@@ -1,4 +1,5 @@
 import { Clock, MessageCircle, Shield } from "./icon";
+import Link from "next/link";
 
 export function SiteFooter() {
   return (
@@ -33,9 +34,32 @@ export function SiteFooter() {
             <h4 className="font-semibold mb-4">Company</h4>
 
             <ul className="space-y-2 text-gray-400 text-sm">
-              <li>About</li>
-              <li>Careers</li>
-              <li>Contact</li>
+              <li>
+                <Link
+                  href="/about"
+                  className="hover:text-[#25D366] transition"
+                >
+                  About 
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/careers"
+                  className="hover:text-[#25D366] transition"
+                >
+                  Careers
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/contact"
+                  className="hover:text-[#25D366] transition"
+                >
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -45,13 +69,12 @@ export function SiteFooter() {
             <ul className="space-y-2 text-gray-400 text-sm">
               <li>Privacy Policy</li>
               <li>Terms</li>
-              <li>GDPR</li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-white/10 mt-10 pt-6 flex flex-col md:flex-row justify-between gap-4 text-sm text-gray-500">
-          <p>(c) 2026 Compucom. All rights reserved.</p>
+          <p>(@) 2026 Powered By Compucom Software ltd. All rights reserved.</p>
 
           <div className="flex gap-6">
             <div className="flex items-center gap-2">
