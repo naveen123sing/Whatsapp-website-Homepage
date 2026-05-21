@@ -24,8 +24,23 @@ export function SiteFooter() {
             <h4 className="font-semibold mb-4">Product</h4>
 
             <ul className="space-y-2 text-gray-400 text-sm">
-              <li>Features</li>
-              <li>Pricing</li>
+              <li>
+                <Link
+                  href="#features"
+                  className="hover:text-[#25D366] transition"
+                >
+                  Features
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="#pricing"
+                  className="hover:text-[#25D366] transition"
+                >
+                  Price
+                </Link>
+              </li>
               <li>API Docs</li>
             </ul>
           </div>
@@ -39,7 +54,7 @@ export function SiteFooter() {
                   href="/about"
                   className="hover:text-[#25D366] transition"
                 >
-                  About 
+                  About
                 </Link>
               </li>
 

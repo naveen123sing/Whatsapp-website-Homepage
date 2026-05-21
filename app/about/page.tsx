@@ -1,46 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { MessageCircle, Sparkles } from "../_components/icon";
-import { AnimatedBackground } from "../_components/animated-background";
-import { Navbar } from "../_components/navbar";
-import { TrustedSection } from "../_components/trusted-section";
-import { SiteFooter } from "../_components/site-footer";
-
-
-const stats = [
-    { value: "1200+", label: "Businesses Trusted" },
-    { value: "5M+", label: "Messages Automated" },
-    { value: "98%", label: "Client Satisfaction" },
-    { value: "24/7", label: "Smart Automation" },
-];
-
-const timeline = [
-    {
-        year: "2023",
-        title: "Company Started",
-        desc: "Started building WhatsApp automation tools for modern businesses.",
-    },
-    {
-        year: "2024",
-        title: "AI Automation Launch",
-        desc: "Introduced AI-powered campaign and workflow automation.",
-    },
-    {
-        year: "2025",
-        title: "1200+ Clients",
-        desc: "Expanded globally with enterprise-grade WhatsApp solutions.",
-    },
-];
-
-const features = [
-    "Smart WhatsApp Campaigns",
-    "AI Template Generation",
-    "Team Inbox & CRM",
-    "Broadcast Automation",
-    "Live Analytics Dashboard",
-    "WhatsApp Workflow Builder",
-];
+import { AnimatedBackground } from "../../components/animated-background";
+import { Navbar } from "../../components/navbar";
+import { TrustedSection } from "../../components/trusted-section";
+import { SiteFooter } from "../../components/site-footer";
 
 export default function AboutUs() {
     return (
@@ -82,7 +46,7 @@ export default function AboutUs() {
 
                         <div className="relative overflow-hidden rounded-[36px] border border-white/10 bg-white/5 p-4 backdrop-blur-xl">
                             <Image
-                                src="/aboutimg/About-deshboardimg.png"
+                                src="/aboutimg/About-Dashboard.png"
                                 alt="dashboard"
                                 width={1400}
                                 height={900}

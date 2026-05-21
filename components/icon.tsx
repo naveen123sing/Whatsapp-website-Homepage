@@ -174,6 +174,15 @@ export function ExternalLink(props: IconProps) {
   );
 }
 
+export function CloseIcon(props: IconProps) {
+  return (
+    <SvgIcon {...props}>
+      <path d="M18 6 6 18" />
+      <path d="M6 6 18 18" />
+    </SvgIcon>
+  );
+}
+
 export function VerifiedBadge(props: IconProps) {
   return (
     <svg

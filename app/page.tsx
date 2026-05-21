@@ -1,14 +1,14 @@
-import { AnimatedBackground } from "./_components/animated-background";
-import { CtaSection } from "./_components/cta-section";
-import { DashboardSection } from "./_components/dashboard-section";
-import { FaqSection } from "./_components/faq-section";
-import { FeatureCSection } from "./_components/featurecontant-section";
-import { FeaturesSection } from "./_components/features-section";
-import { HeroSection } from "./_components/hero-section";
-import { Navbar } from "./_components/navbar";
-import { PricingCard } from "./_components/Price-section";
-import { SiteFooter } from "./_components/site-footer";
-import { TrustedSection } from "./_components/trusted-section";
+import { AnimatedBackground } from "../components/animated-background";
+import { CtaSection } from "../components/cta-section";
+import { DashboardSection } from "../components/dashboard-section";
+import { FaqSection } from "../components/faq-section";
+import { FeatureContentSection } from "../components/feature-content-section";
+import { FeaturesSection } from "../components/features-section";
+import { HeroSection } from "../components/hero-section";
+import { Navbar } from "../components/navbar";
+import { PricingCard } from "../components/pricing-section";
+import { SiteFooter } from "../components/site-footer";
+import { TrustedSection } from "../components/trusted-section";
 
 export default function Home() {
   return (
@@ -20,7 +20,7 @@ export default function Home() {
         <HeroSection />
         <TrustedSection />
         <DashboardSection />
-        <FeatureCSection />
+        <FeatureContentSection />
         <FeaturesSection />
         <section className="py-24 px-6" id="pricing">
           <div className="text-center mb-12 animate-fade-up">
@@ -78,5 +78,3 @@ export default function Home() {
     </main>
   );
 }
-
-

@@ -37,7 +37,7 @@ const featuresData = [
   },
 ] as const;
 
-export function FeatureCSection() {
+export function FeatureContentSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -95,7 +95,7 @@ export function FeatureCSection() {
 
   return (
     <section
-      id="feature-content"
+      id="profeature"
       ref={sectionRef}
       className="feature-scroll-section"
       style={{ height: `${(featuresData.length + 1) * 100}vh` }}

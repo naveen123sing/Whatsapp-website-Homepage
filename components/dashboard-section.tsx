@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import dashboardImage from "../../Graph_Dashboard.png";
+import dashboardImage from "../public/Graph_Dashboard.png";
 
 export function DashboardSection() {
   return (
