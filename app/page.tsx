@@ -46,7 +46,7 @@ export default function Home() {
 
             <PricingCard
               name="Professional"
-              price="Rs 5000"
+              price="Rs 5k"
               period="month"
               highlighted={true}
               features={[

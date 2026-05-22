@@ -26,12 +26,7 @@ const trustedBrands = [
     width: 130,
     height: 50,
   },
-  // {
-  //   name: "Accenture",
-  //   logo: "/Logos/Accenture.svg",
-  //   width: 150,
-  //   height: 50,
-  // },
+ 
   {
     name: "Iee",
     logo: "/Logos/Ieelogo.png",

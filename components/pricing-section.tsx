@@ -49,7 +49,7 @@ export function PricingCard({ name, price, period, features, highlighted = false
 
                     {/* PRICE */}
                     <div className="mb-6">
-                        <span className="bg-linear-to-br from-white to-gray-300 bg-clip-text text-transparent text-5xl font-bold">
+                        <span className="bg-linear-to-br from-white to-gray-300 bg-clip-text text-transparent text-3xl font-bold">
                             {price}
                         </span>
 
