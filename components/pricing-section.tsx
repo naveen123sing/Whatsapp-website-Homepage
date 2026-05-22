@@ -1,4 +1,13 @@
+"use client"
+
 import { Check } from "./icon";
+import { BookDemoModal } from "./book-demo/book-demo-modal";
+import { useState } from "react";
+
+const trialModal = {
+    title: "Create your account",
+    description: "Fill in your details and our team will help you activate your trial shortly.",
+};
 
 
 interface PricingCardProps {
@@ -11,6 +20,9 @@ interface PricingCardProps {
 }
 
 export function PricingCard({ name, price, period, features, highlighted = false }: PricingCardProps) {
+    const [openModal, setOpenModal] = useState(false);
+
+
     return (
         <>
             <div
@@ -64,6 +76,8 @@ export function PricingCard({ name, price, period, features, highlighted = false
 
                     {/* BUTTON */}
                     <button
+                        onClick={() => setOpenModal(true)}
+
                         className={`w-full py-3 px-6 rounded-xl transition-all duration-300 ${highlighted
                             ? "bg-linear-to-br from-[#25D366] to-[#20B558] text-white shadow-[0_0_20px_rgba(37,211,102,0.4)] hover:shadow-[0_0_30px_rgba(37,211,102,0.6)]"
                             : "bg-white/5 text-white border border-white/10 hover:bg-white/10 hover:border-[#25D366]/50"
@@ -73,6 +87,12 @@ export function PricingCard({ name, price, period, features, highlighted = false
                     </button>
                 </div>
             </div>
+            <BookDemoModal
+                open={openModal}
+                onOpenChange={setOpenModal}
+                title={trialModal.title}
+                description={trialModal.description}
+            />
         </>
     );
 }

@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { BarChart3, Bot, Check, MessageCircle } from "./icon";
+import { BarChart3, Bot, Check, MessageCircle } from "../icon";
+import styles from "./feature-content-section.module.css";
 
 const featuresData = [
   {
@@ -97,12 +98,12 @@ export function FeatureContentSection() {
     <section
       id="profeature"
       ref={sectionRef}
-      className="feature-scroll-section"
+      className={styles.section}
       style={{ height: `${(featuresData.length + 1) * 100}vh` }}
     >
-      <div className={`feature-scroll-sticky is-${pinState}`}>
-        <div className="container mx-auto px-6">
-          <div className="feature-scroll-heading animate-fade-up">
+      <div className={`${styles.sticky} ${styles[pinState]}`}>
+        <div className={`${styles.inner} container mx-auto px-6`}>
+          <div className={`${styles.heading} animate-fade-up`}>
             {/* <p className="mb-3 text-sm font-medium text-[#25D366]">
               Scroll Experience
             </p> */}
@@ -113,11 +114,11 @@ export function FeatureContentSection() {
             </p>
           </div>
 
-          <div className="feature-scroll-progress">
+          <div className={styles.progress}>
             <span style={{ width: `${Math.round(scrollProgress * 100)}%` }} />
           </div>
 
-          <div className="feature-scroll-stage">
+          <div className={styles.stage}>
             {featuresData.map((feature, index) => {
               const Icon = feature.icon;
               const isActive = index === activeIndex;
@@ -127,15 +128,15 @@ export function FeatureContentSection() {
                 <div
                   key={feature.title}
                   className={[
-                    "feature-scroll-scene",
-                    `feature-scroll-${feature.tone}`,
-                    isActive ? "is-active" : "",
-                    isReversed ? "is-reversed" : "",
+                    styles.scene,
+                    styles[feature.tone],
+                    isActive ? styles.active : "",
+                    isReversed ? styles.reversed : "",
                   ].join(" ")}
                   aria-hidden={!isActive}
                 >
-                  <div className="feature-scroll-content">
-                    <div className="feature-scroll-badge">
+                  <div className={styles.content}>
+                    <div className={styles.badge}>
                       <Icon className="h-5 w-5" />
                       <span>{feature.eyebrow}</span>
                     </div>
@@ -155,7 +156,7 @@ export function FeatureContentSection() {
 
                     <div className="mt-8 space-y-3">
                       {feature.features.map((item) => (
-                        <div key={item} className="feature-scroll-list-item">
+                        <div key={item} className={styles.listItem}>
                           <span>
                             <Check className="h-4 w-4" />
                           </span>
@@ -165,15 +166,15 @@ export function FeatureContentSection() {
                     </div>
                   </div>
 
-                  <div className="feature-scroll-visual">
-                    <div className="feature-scroll-glow"></div>
+                  <div className={styles.visual}>
+                    <div className={styles.glow}></div>
                     {/* <div className="feature-scroll-radar">
                       <span></span>
                       <span></span>
                       <span></span>
                     </div> */}
 
-                    <div className="feature-scroll-preview-shell">
+                    <div className={styles.previewShell}>
                       <Image
                         src={feature.image}
                         alt={feature.title}
@@ -182,7 +183,7 @@ export function FeatureContentSection() {
                         quality={95}
                         priority
                         unoptimized
-                        className="feature-scroll-image"
+                        className={styles.image}
                         sizes="(max-width: 768px) 92vw, (max-width: 1280px) 48vw, 700px"
                       />
                     </div>
@@ -192,11 +193,11 @@ export function FeatureContentSection() {
             })}
           </div>
 
-          <div className="feature-scroll-dots" aria-hidden="true">
+          <div className={styles.dots} aria-hidden="true">
             {featuresData.map((feature, index) => (
               <span
                 key={feature.title}
-                className={index === activeIndex ? "is-active" : ""}
+                className={index === activeIndex ? styles.active : ""}
               />
             ))}
           </div>

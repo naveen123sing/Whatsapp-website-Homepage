@@ -7,7 +7,8 @@ import {
   Inbox,
   Send,
   Zap,
-} from "./icon";
+} from "../icon";
+import styles from "./features-section.module.css";
 
 const features = [
   {
@@ -78,10 +79,10 @@ export function FeaturesSection() {
           return (
             <div
               key={feature.title}
-              className={`feature-card feature-card-${feature.tone} animate-fade-up`}
+              className={`${styles.card} ${styles[feature.tone]} animate-fade-up`}
               style={{ animationDelay: `${i * 0.08}s` }}
             >
-              <div className="feature-icon">
+              <div className={styles.icon}>
                 <Icon className="w-7 h-7" />
               </div>
 

@@ -1,14 +1,14 @@
-import { AnimatedBackground } from "../components/animated-background";
+import { AnimatedBackground } from "../components/animated-background/animated-background";
 import { CtaSection } from "../components/cta-section";
-import { DashboardSection } from "../components/dashboard-section";
+import { DashboardSection } from "../components/dashboard-section/dashboard-section";
 import { FaqSection } from "../components/faq-section";
-import { FeatureContentSection } from "../components/feature-content-section";
-import { FeaturesSection } from "../components/features-section";
-import { HeroSection } from "../components/hero-section";
-import { Navbar } from "../components/navbar";
+import { FeatureContentSection } from "../components/feature-content-section/feature-content-section";
+import { FeaturesSection } from "../components/features-section/features-section";
+import { HeroSection } from "../components/hero-section/hero-section";
+import { Navbar } from "../components/navbar/navbar";
 import { PricingCard } from "../components/pricing-section";
 import { SiteFooter } from "../components/site-footer";
-import { TrustedSection } from "../components/trusted-section";
+import { TrustedSection } from "../components/trusted-section/trusted-section";
 
 export default function Home() {
   return (
@@ -46,7 +46,7 @@ export default function Home() {
 
             <PricingCard
               name="Professional"
-              price="$49"
+              price="Rs 5000"
               period="month"
               highlighted={true}
               features={[
@@ -59,7 +59,7 @@ export default function Home() {
 
             <PricingCard
               name="Enterprise"
-              price="$99"
+              price="Custom"
               period="month"
               features={[
                 "Unlimited Numbers",

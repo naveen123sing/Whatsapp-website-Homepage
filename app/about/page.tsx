@@ -1,14 +1,23 @@
 "use client";
 
 import Image from "next/image";
-import { AnimatedBackground } from "../../components/animated-background";
-import { Navbar } from "../../components/navbar";
-import { TrustedSection } from "../../components/trusted-section";
+import { useState } from "react";
+import { AnimatedBackground } from "../../components/animated-background/animated-background";
+import { BookDemoModal } from "../../components/book-demo/book-demo-modal";
+import { Navbar } from "../../components/navbar/navbar";
+import { TrustedSection } from "../../components/trusted-section/trusted-section";
 import { SiteFooter } from "../../components/site-footer";
 
+const trialModal = {
+    title: "Start Your Free Trial",
+    description: "Fill in your details and our team will help you activate your trial shortly.",
+};
+
 export default function AboutUs() {
+    const [openModal, setOpenModal] = useState(false);
+
     return (
-         <main className="site-scene relative min-h-screen text-white overflow-x-hidden">
+        <main className="site-scene relative min-h-screen text-white overflow-x-hidden">
             <AnimatedBackground />
             <Navbar />
 
@@ -221,7 +230,11 @@ export default function AboutUs() {
                             automation and campaigns.
                         </p>
 
-                        <button className="mt-10 inline-flex items-center gap-3 rounded-2xl bg-linear-to-r from-green-500 to-emerald-400 px-8 py-4 font-semibold text-black transition hover:scale-[1.03]">
+                        <button
+                            type="button"
+                            className="mt-10 inline-flex items-center gap-3 rounded-2xl bg-linear-to-r from-green-500 to-emerald-400 px-8 py-4 font-semibold text-black transition hover:scale-[1.03]"
+                            onClick={() => setOpenModal(true)}
+                        >
                             Start Free Trial
                             {/* <ArrowRight className="h-5 w-5" /> */}
                         </button>
@@ -229,6 +242,12 @@ export default function AboutUs() {
                 </div>
             </section>
             <SiteFooter />
+            <BookDemoModal
+                open={openModal}
+                onOpenChange={setOpenModal}
+                title={trialModal.title}
+                description={trialModal.description}
+            />
         </main>
     );
 }

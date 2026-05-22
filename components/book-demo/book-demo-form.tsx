@@ -106,7 +106,7 @@ export function BookDemoForm() {
           type="submit"
           className="w-full rounded-xl bg-[#25D366] py-3 font-semibold text-white transition-all hover:bg-[#1ebe5d]"
         >
-          Submit Demo Request
+          Submit
         </button>
       </form>
     </>

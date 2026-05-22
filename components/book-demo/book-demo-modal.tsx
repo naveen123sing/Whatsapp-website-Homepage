@@ -7,9 +7,16 @@ import { CloseIcon } from "../icon";
 interface BookDemoModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  title?: string;
+  description?: string;
 }
 
-export function BookDemoModal({ open, onOpenChange }: BookDemoModalProps) {
+export function BookDemoModal({
+  open,
+  onOpenChange,
+  title = "Book a Demo",
+  description = "Fill in your details and our team will contact you shortly.",
+}: BookDemoModalProps) {
   useEffect(() => {
     if (!open) {
       return;
@@ -62,11 +69,11 @@ export function BookDemoModal({ open, onOpenChange }: BookDemoModalProps) {
 
         <div className="mb-8 pr-8">
           <h2 id="book-demo-title" className="mb-2 text-3xl font-bold">
-            Book a Demo
+            {title}
           </h2>
 
           <p className="text-gray-500">
-            Fill in your details and our team will contact you shortly.
+            {description}
           </p>
         </div>
 

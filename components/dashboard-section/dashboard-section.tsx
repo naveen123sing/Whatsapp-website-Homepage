@@ -1,6 +1,7 @@
 import Image from "next/image";
+import styles from "./dashboard-section.module.css";
 
-import dashboardImage from "../public/Graph_Dashboard.png";
+import dashboardImage from "../../public/Graph_Dashboard.png";
 
 export function DashboardSection() {
   return (
@@ -13,7 +14,7 @@ export function DashboardSection() {
         </p>
       </div>
 
-      <div className="dashboard-image-card animate-scale-in">
+      <div className={`${styles.imageCard} animate-scale-in`}>
         <Image
           src={dashboardImage}
           alt="Compucom WhatsApp campaign analytics dashboard"

@@ -1,0 +1,129 @@
+.orbit {
+  position: absolute;
+  width: 42rem;
+  height: 42rem;
+  border-radius: 999px;
+  pointer-events: none;
+  filter: blur(74px);
+  opacity: 0.34;
+  animation: gradientDrift 11s ease-in-out infinite;
+}
+
+.orbitGreen {
+  top: 3rem;
+  right: 12rem;
+  background: rgba(37, 211, 102, 0.42);
+}
+
+.orbitBlue {
+  right: 32rem;
+  bottom: -8rem;
+  background: rgba(59, 130, 246, 0.36);
+  animation-delay: -4s;
+}
+
+.particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.particles span {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.815);
+  border-radius: 999px;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.35);
+  animation: particleFloat 6s ease-in-out infinite;
+}
+
+.particles span:nth-child(1) {
+  top: 12%;
+  left: 47%;
+  animation-delay: 0s;
+}
+
+.particles span:nth-child(2) {
+  top: 18%;
+  left: 78%;
+  animation-delay: 1s;
+}
+
+.particles span:nth-child(3) {
+  top: 38%;
+  left: 15%;
+  animation-delay: 2s;
+}
+
+.particles span:nth-child(4) {
+  top: 48%;
+  left: 58%;
+  animation-delay: 3s;
+}
+
+.particles span:nth-child(5) {
+  top: 66%;
+  left: 45%;
+  animation-delay: 4s;
+}
+
+.particles span:nth-child(6) {
+  top: 72%;
+  left: 66%;
+  animation-delay: 1.8s;
+}
+
+.particles span:nth-child(7) {
+  top: 88%;
+  left: 81%;
+  animation-delay: 2.8s;
+}
+
+.particles span:nth-child(8) {
+  top: 64%;
+  left: 19%;
+  animation-delay: 3.8s;
+}
+
+.particles span:nth-child(9) {
+  top: 28%;
+  left: 46%;
+  animation-delay: 1.8s;
+}
+
+.particles span:nth-child(10) {
+  top: 81%;
+  left: 69%;
+  animation-delay: 2.8s;
+}
+
+.particles span:nth-child(11) {
+  top: 94%;
+  left: 10%;
+  animation-delay: 3.8s;
+}
+
+@keyframes gradientDrift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(-4rem, 2rem, 0) scale(1.08);
+  }
+}
+
+@keyframes particleFloat {
+  0%,
+  100% {
+    opacity: 0.22;
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    opacity: 0.86;
+    transform: translate3d(0.7rem, -1.2rem, 0);
+  }
+}

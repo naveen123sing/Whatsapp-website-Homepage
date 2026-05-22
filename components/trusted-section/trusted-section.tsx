@@ -1,4 +1,5 @@
 import Image from "next/image";
+import styles from "./trusted-section.module.css";
 
 const trustedBrands = [
   {
@@ -25,12 +26,12 @@ const trustedBrands = [
     width: 130,
     height: 50,
   },
-  {
-    name: "Accenture",
-    logo: "/Logos/Accenture.svg",
-    width: 150,
-    height: 50,
-  },
+  // {
+  //   name: "Accenture",
+  //   logo: "/Logos/Accenture.svg",
+  //   width: 150,
+  //   height: 50,
+  // },
   {
     name: "Iee",
     logo: "/Logos/Ieelogo.png",
@@ -73,7 +74,7 @@ export function TrustedSection() {
          after:from-[#070819]/70 
            after:to-transparent 
           ">
-        <div className="trusted-slider flex items-center gap-8 w-max">
+        <div className={`${styles.slider} flex items-center gap-8 w-max`}>
 
           {[...trustedBrands, ...trustedBrands].map((brand, i) => (
             <div

@@ -1,10 +1,27 @@
 "use client";
 import { useState } from "react";
-import { Check, ExternalLink, Sparkles, TrendingUp, VerifiedBadge } from "./icon";
-import { BookDemoModal } from "./book-demo/book-demo-modal";
+import { Check, ExternalLink, Sparkles, TrendingUp, VerifiedBadge } from "../icon";
+import { BookDemoModal } from "../book-demo/book-demo-modal";
+import styles from "./hero-section.module.css";
+
+const bookDemoModal = {
+  title: "Book a Demo",
+  description: "Fill in your details and our team will contact you shortly.",
+};
+
+const trialModal = {
+  title: "Start Your Free Trial",
+  description: "Fill in your details and our team will help you activate your trial shortly.",
+};
 
 export function HeroSection() {
   const [openModal, setOpenModal] = useState(false);
+  const [modalContent, setModalContent] = useState(bookDemoModal);
+
+  function openLeadModal(content: typeof bookDemoModal) {
+    setModalContent(content);
+    setOpenModal(true);
+  }
 
   return (
     <>
@@ -28,11 +45,19 @@ export function HeroSection() {
             </p>
 
             <div className="flex flex-wrap gap-4 animate-fade-up animation-delay-300">
-              <button className="px-8 py-4 rounded-xl bg-[#25D366] hover:bg-[#20b558] transition">
+              <button
+                type="button"
+                className="px-8 py-4 rounded-xl bg-[#25D366] hover:bg-[#20b558] transition"
+                onClick={() => openLeadModal(trialModal)}
+              >
                 Start Free Trial
               </button>
 
-              <button  type="button" className="cursor-pointer px-8 py-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition" onClick={() => setOpenModal(true)}>
+              <button
+                type="button"
+                className="cursor-pointer px-8 py-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition"
+                onClick={() => openLeadModal(bookDemoModal)}
+              >
                 Book Demo
               </button>
             </div>
@@ -57,10 +82,10 @@ export function HeroSection() {
 
           <div className="relative min-h-155 flex justify-center items-center animate-fade-left">
             <div className="phone-backdrop">
-              <div className="phone-glow-box"></div>
+              <div className={styles.phoneGlowBox}></div>
 
-              <div className="phone-rotating-ring ring-green"></div>
-              <div className="phone-rotating-ring ring-blue"></div>
+              <div className={`${styles.phoneRotatingRing} ${styles.ringGreen}`}></div>
+              <div className={`${styles.phoneRotatingRing} ${styles.ringBlue}`}></div>
               <span className="phone-light-ring"></span>
             </div>
 
@@ -81,7 +106,6 @@ export function HeroSection() {
 
                 <div className="space-y-4">
                   <div className="bg-white rounded-xl rounded-tl-none overflow-hidden shadow-sm mx-auto" style={{ maxWidth: 240 }}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=300&q=80"
                       alt="preview"
@@ -102,12 +126,12 @@ export function HeroSection() {
                       </p>
                     </div>
                     <div className="border-t border-gray-200">
-                      <button className="chatBtn ">
+                      <button className={styles.chatButton}>
                         <ExternalLink className="w-5 h-5" />
                         Shop now
                       </button>
 
-                      <button className="chatBtn border-t border-gray-200">
+                      <button className={`${styles.chatButton} border-t border-gray-200`}>
                         <ExternalLink className="w-5 h-5" />
                         Visit Site
                       </button>
@@ -122,7 +146,7 @@ export function HeroSection() {
               </div>
             </div>
 
-            <div className="glass-card-glow glass-card-glow-purple absolute z-20 top-12 right-0 bg-white/10 border border-purple-400/30 shadow-[0_0_36px_rgba(147,51,234,0.35)] rounded-2xl p-4 animate-float">
+            <div className={`${styles.cardGlow} ${styles.cardGlowPurple} absolute z-20 top-12 right-0 bg-white/10 border border-purple-400/30 shadow-[0_0_36px_rgba(147,51,234,0.35)] rounded-2xl p-4 animate-float`}>
               <div className="flex gap-3 items-center">
                 <div className="w-12 h-12 rounded-xl bg-purple-500 flex items-center justify-center">
                   <Check className="w-6 h-6" />
@@ -135,7 +159,7 @@ export function HeroSection() {
               </div>
             </div>
 
-            <div className="glass-card-glow glass-card-glow-blue absolute z-20 bottom-16 left-4 bg-white/10 border border-blue-400/30 shadow-[0_0_36px_rgba(59,130,246,0.28)] rounded-2xl p-4 animate-float-delay">
+            <div className={`${styles.cardGlow} ${styles.cardGlowBlue} absolute z-20 bottom-16 left-4 bg-white/10 border border-blue-400/30 shadow-[0_0_36px_rgba(59,130,246,0.28)] rounded-2xl p-4 animate-float-delay`}>
               <div className="flex gap-3 items-center">
                 <div className="w-12 h-12 rounded-xl bg-blue-500 flex items-center justify-center">
                   <TrendingUp className="w-6 h-6" />
@@ -151,7 +175,12 @@ export function HeroSection() {
         </div>
       </section >
 
-      <BookDemoModal open={openModal} onOpenChange={setOpenModal} />
+      <BookDemoModal
+        open={openModal}
+        onOpenChange={setOpenModal}
+        title={modalContent.title}
+        description={modalContent.description}
+      />
     </>
   );
 }

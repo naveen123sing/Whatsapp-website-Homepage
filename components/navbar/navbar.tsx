@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { MessageCircle } from "./icon";
+import Image from "next/image";
 import Link from "next/link";
-import { BookDemoModal } from "./book-demo/book-demo-modal";
+import { BookDemoModal } from "../book-demo/book-demo-modal";
+import styles from "./navbar.module.css";
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,35 +19,38 @@ export function Navbar() {
 
   return (
     <>
-      <nav className="navbar navbar-show">
-        <div className="navbar-container">
-          <Link href="/" className="navbar-logo">
-            <div className="logo-icon">
-              <MessageCircle strokeWidth={2.5} />
-            </div>
-            <span className="logo-text">Compucom</span>
+      <nav className={`${styles.navbar} ${styles.show}`}>
+        <div className={styles.container}>
+          <Link href="/" >
+            <Image
+              src="/Logo4.png"
+              alt="CompuX"
+              width={140}
+              height={98}
+              priority
+            />
           </Link>
 
-          <div className="navbar-menu">
+          <div className={styles.menu}>
             {menuItems.map((item, index) => (
               <Link
                 key={index}
                 href={item.href}
-                className="navbar-link"
+                className={styles.link}
               >
                 {item.label}
               </Link>
             ))}
           </div>
 
-          <div className="navbar-buttons">
-            <button type="button" className="login-btn">
+          <div className={styles.buttons}>
+            <button type="button" className={styles.loginButton}>
               Login
             </button>
 
             <button
               type="button"
-              className="demo-btn"
+              className={styles.demoButton}
               onClick={() => setOpenModal(true)}
             >
               <span>Book Demo</span>
@@ -57,7 +61,7 @@ export function Navbar() {
             type="button"
             aria-label="Toggle navigation menu"
             aria-expanded={isMenuOpen}
-            className="mobile-toggle"
+            className={styles.mobileToggle}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <span className="flex flex-col gap-1.5">
@@ -68,26 +72,26 @@ export function Navbar() {
           </button>
         </div>
 
-        <div className={`mobile-menu ${isMenuOpen ? "mobile-menu-open" : ""}`}>
+        <div className={`${styles.mobileMenu} ${isMenuOpen ? styles.mobileMenuOpen : ""}`}>
           {menuItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              className="mobile-link"
+              className={styles.mobileLink}
               onClick={() => setIsMenuOpen(false)}
             >
               {item.label}
             </Link>
           ))}
 
-          <div className="mobile-buttons">
-            <button type="button" className="mobile-login-btn">
+          <div className={styles.mobileButtons}>
+            <button type="button" className={styles.mobileLoginButton}>
               Login
             </button>
 
             <button
               type="button"
-              className="mobile-demo-btn"
+              className={styles.mobileDemoButton}
               onClick={() => {
                 setIsMenuOpen(false);
                 setOpenModal(true);
