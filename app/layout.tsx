@@ -1,3 +1,4 @@
+import "intl-tel-input/styles";
 import "./globals.css";
 
 

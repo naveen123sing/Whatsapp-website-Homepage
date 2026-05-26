@@ -1,16 +1,57 @@
 "use client";
 
+import intlTelInput, { type Iti } from "intl-tel-input";
 import type { FormEvent } from "react";
-import { useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
+import styles from "./book-demo-form.module.css";
 
 export function BookDemoForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [phoneError, setPhoneError] = useState("");
   const idPrefix = useId();
+  const phoneInputRef = useRef<HTMLInputElement | null>(null);
+  const phoneInstanceRef = useRef<Iti | null>(null);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  useEffect(() => {
+    if (!phoneInputRef.current) {
+      return;
+    }
+
+    const phoneInstance = intlTelInput(phoneInputRef.current, {
+      initialCountry: "in",
+      separateDialCode: true,
+      strictMode: true,
+      loadUtils: () => import("intl-tel-input/utils"),
+    });
+
+    phoneInstanceRef.current = phoneInstance;
+ 
+    return () => {
+      phoneInstance.destroy();
+      phoneInstanceRef.current = null;
+    };
+  }, []);
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    const phoneInstance = phoneInstanceRef.current;
+
+    if (phoneInstance) {
+      await phoneInstance.promise;
+
+      if (!phoneInstance.isValidNumber()) {
+        setPhoneError("Please enter a valid phone number.");
+        return;
+      }
+
+      const formData = new FormData(event.currentTarget);
+      formData.set("phone", phoneInstance.getNumber());
+    }
+
     event.currentTarget.reset();
     setSubmitted(true);
+    setPhoneError("");
   }
 
   return (
@@ -23,7 +64,15 @@ export function BookDemoForm() {
 
       <form
         className="space-y-5"
-        onChange={() => submitted && setSubmitted(false)}
+        onChange={() => {
+          if (submitted) {
+            setSubmitted(false);
+          }
+
+          if (phoneError) {
+            setPhoneError("");
+          }
+        }}
         onSubmit={handleSubmit}
       >
         <div>
@@ -64,7 +113,7 @@ export function BookDemoForm() {
           />
         </div>
 
-        <div>
+        <div className={styles.phoneField}>
           <label
             htmlFor={`${idPrefix}-phone`}
             className="mb-2 block text-sm font-medium text-gray-700"
@@ -74,13 +123,25 @@ export function BookDemoForm() {
 
           <input
             id={`${idPrefix}-phone`}
+            ref={phoneInputRef}
             name="phone"
             type="tel"
             autoComplete="tel"
             placeholder="Enter your phone number"
             required
             className="w-full rounded-xl border border-gray-300 px-4 py-3 text-gray-900 outline-none transition focus:border-[#25D366]"
+            aria-invalid={Boolean(phoneError)}
+            aria-describedby={phoneError ? `${idPrefix}-phone-error` : undefined}
           />
+
+          {phoneError && (
+            <p
+              id={`${idPrefix}-phone-error`}
+              className="mt-2 text-sm font-medium text-red-600"
+            >
+              {phoneError}
+            </p>
+          )}
         </div>
 
         <div>

@@ -1,0 +1,7 @@
+.phoneField :global(.iti) {
+  width: 100%;
+}
+
+.phoneField :global(.iti__tel-input) {
+  width: 100%;
+}

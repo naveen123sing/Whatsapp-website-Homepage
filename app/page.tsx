@@ -8,6 +8,7 @@ import { HeroSection } from "../components/hero-section/hero-section";
 import { Navbar } from "../components/navbar/navbar";
 import { PricingCard } from "../components/pricing-section";
 import { SiteFooter } from "../components/site-footer";
+import { TestimonialSection } from "../components/testimonial-section/testimonial-section";
 import { TrustedSection } from "../components/trusted-section/trusted-section";
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
         <DashboardSection />
         <FeatureContentSection />
         <FeaturesSection />
+        <TestimonialSection />
         <section className="py-24 px-6" id="pricing">
           <div className="text-center mb-12 animate-fade-up">
             <h2 className="text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>

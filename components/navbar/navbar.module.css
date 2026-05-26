@@ -50,13 +50,14 @@
 .menu {
   display: flex;
   align-items: center;
-  gap: 38px;
+  gap: 30px;
 }
 
 .link {
   position: relative;
   color: #d1d5db;
   text-decoration: none;
+  font: inherit;
   transition: color 0.3s ease;
 }
 
@@ -78,6 +79,136 @@
 
 .link:hover::after {
   width: 100%;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: -1rem;
+  right: -1rem;
+  height: 1rem;
+}
+
+.dropdownTrigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 0;
+  background: transparent;
+  color: #d1d5db;
+  cursor: pointer;
+  font: inherit;
+  transition: color 0.3s ease;
+}
+
+.dropdownTrigger:hover,
+.dropdown:focus-within .dropdownTrigger {
+  color: #25d366;
+}
+
+.dropdownIcon {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.dropdown:hover .dropdownIcon,
+.dropdown:focus-within .dropdownIcon {
+  transform: rotate(180deg);
+}
+
+.dropdownPanel {
+  position: absolute;
+  top: calc(100% + 1rem);
+  left: 50%;
+  width: min(720px, calc(100vw - 48px));
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  background: rgba(8, 12, 28, 0.96);
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.34),
+    0 0 45px rgba(37, 211, 102, 0.08);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(0.6rem);
+  z-index: 20;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.dropdown:hover .dropdownPanel,
+.dropdown:focus-within .dropdownPanel {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdownHeader {
+  padding: 0.35rem 0.45rem 0.9rem;
+}
+
+.dropdownHeader p {
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.dropdownHeader span {
+  display: block;
+  margin-top: 0.25rem;
+  color: #9ca3af;
+  font-size: 0.82rem;
+}
+
+.dropdownGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.dropdownItem {
+  display: block;
+  width: 100%;
+  min-height: 86px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.9rem;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.dropdownItem:hover {
+  border-color: rgba(37, 211, 102, 0.34);
+  background: rgba(37, 211, 102, 0.08);
+  transform: translateY(-2px);
+}
+
+.dropdownItem strong {
+  display: block;
+  color: #ffffff;
+  font-size: 0.92rem;
+}
+
+.dropdownItem span {
+  display: block;
+  margin-top: 0.35rem;
+  color: #9ca3af;
+  font-size: 0.8rem;
+  line-height: 1.5;
 }
 
 .buttons {
@@ -162,7 +293,7 @@
 }
 
 .mobileMenuOpen {
-  max-height: 600px;
+  max-height: 900px;
   opacity: 1;
 }
 
@@ -177,6 +308,43 @@
 .mobileLink:hover {
   color: #25d366;
   background: rgba(255, 255, 255, 0.03);
+}
+
+.mobileGroup {
+  padding: 12px 24px 4px;
+}
+
+.mobileGroup p {
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.mobileSubItem {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-left: 1px solid rgba(37, 211, 102, 0.24);
+  background: transparent;
+  padding: 0.6rem 0 0.6rem 0.9rem;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.mobileSubItem strong {
+  display: block;
+  color: #ffffff;
+  font-size: 0.86rem;
+}
+
+.mobileSubItem span {
+  display: block;
+  margin-top: 0.2rem;
+  color: #9ca3af;
+  font-size: 0.78rem;
+  line-height: 1.5;
 }
 
 .mobileButtons {
@@ -204,6 +372,87 @@
   background: linear-gradient(135deg, #25d366, #20b558);
 }
 
+.pdfOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(3, 7, 18, 0.82);
+}
+
+.pdfModal {
+  display: flex;
+  width: min(1120px, 100%);
+  height: min(86vh, 820px);
+  overflow: hidden;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  background: #08101f;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.45);
+}
+
+.pdfHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(10, 11, 30, 0.96);
+}
+
+.pdfHeader p {
+  color: #25d366;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.pdfHeader h2 {
+  margin-top: 0.15rem;
+  color: #ffffff;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.pdfCloseButton {
+  display: inline-flex;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.pdfCloseButton:hover {
+  background: rgba(37, 211, 102, 0.14);
+  color: #25d366;
+}
+
+.pdfCloseIcon {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.pdfFrame {
+  width: 100%;
+  flex: 1;
+  border: 0;
+  background: #ffffff;
+}
+
 @media (max-width: 1024px) {
   .menu,
   .buttons {
@@ -214,5 +463,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .pdfOverlay {
+    padding: 10px;
+  }
+
+  .pdfModal {
+    height: 92vh;
+    border-radius: 14px;
+  }
+
+  .pdfHeader {
+    padding: 0.85rem;
+  }
+
+  .pdfHeader h2 {
+    font-size: 1rem;
   }
 }
