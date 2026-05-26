@@ -47,7 +47,7 @@ export function HeroSection() {
             <div className="flex flex-wrap gap-4 animate-fade-up animation-delay-300">
               <button
                 type="button"
-                className="px-8 py-4 rounded-xl bg-[#25D366] hover:bg-[#20b558] transition"
+                className="cursor-pointer px-8 py-4 rounded-xl bg-[#25D366] hover:bg-[#20b558] transition"
                 onClick={() => openLeadModal(trialModal)}
               >
                 Start Free Trial

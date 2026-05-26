@@ -1,10 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { BookDemoModal } from "../book-demo/book-demo-modal";
-import { ChevronDown, CloseIcon } from "../icon";
+import {
+  Building2,
+  ChevronDown,
+  CloseIcon,
+  GraduationCap,
+  HeartPulse,
+  Plane,
+  ShoppingBag,
+} from "../icon";
 import styles from "./navbar.module.css";
 
 const coachingPdfUrl = "/pdfs/Whatsapp_CoachingInstt_graphics.pdf";
@@ -14,31 +22,38 @@ const industryUseCases = [
     label: "Education",
     description: "Admissions, fee reminders, and student support.",
     pdfUrl: coachingPdfUrl,
+    icon: GraduationCap,
   },
   {
     label: "Healthcare",
     description: "Appointments, reports, and patient follow-ups.",
     pdfUrl: coachingPdfUrl,
+    icon: HeartPulse,
   },
   {
     label: "Real Estate",
     description: "Lead nurturing, site visits, and project updates.",
     pdfUrl: coachingPdfUrl,
+    icon: Building2,
   },
   {
     label: "Retail & D2C",
     description: "Offers, order updates, and customer reactivation.",
     pdfUrl: coachingPdfUrl,
+    icon: ShoppingBag,
   },
   {
     label: "Travel",
     description: "Booking alerts, itineraries, and support flows.",
     pdfUrl: coachingPdfUrl,
+    icon: Plane,
   },
 ];
 
 export function Navbar() {
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isIndustryOpen, setIsIndustryOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [selectedPdf, setSelectedPdf] = useState<
     (typeof industryUseCases)[number] | null
@@ -50,6 +65,34 @@ export function Navbar() {
     { label: "Pro Feature", href: "#profeature" },
     { label: "FAQ", href: "#faq" },
   ];
+
+  useEffect(() => {
+    if (!isIndustryOpen) {
+      return;
+    }
+
+    const handlePointerDown = (event: PointerEvent) => {
+      const dropdown = dropdownRef.current;
+
+      if (dropdown && !dropdown.contains(event.target as Node)) {
+        setIsIndustryOpen(false);
+      }
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsIndustryOpen(false);
+      }
+    };
+
+    window.addEventListener("pointerdown", handlePointerDown);
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("pointerdown", handlePointerDown);
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isIndustryOpen]);
 
   useEffect(() => {
     if (!selectedPdf) {
@@ -97,34 +140,55 @@ export function Navbar() {
               </Link>
             ))}
 
-            <div className={styles.dropdown}>
+            <div
+              ref={dropdownRef}
+              className={`${styles.dropdown} ${isIndustryOpen ? styles.dropdownOpen : ""}`}
+            >
               <button
                 type="button"
                 className={styles.dropdownTrigger}
                 aria-haspopup="true"
+                aria-expanded={isIndustryOpen}
+                onClick={() => setIsIndustryOpen((open) => !open)}
               >
                 <span>Industries</span>
                 <ChevronDown className={styles.dropdownIcon} />
               </button>
 
-              <div className={styles.dropdownPanel}>
+              <div
+                className={styles.dropdownPanel}
+                aria-hidden={!isIndustryOpen}
+              >
                 <div className={styles.dropdownHeader}>
                   <p>Industry Wise Use Cases</p>
                   <span>Choose workflows built for your business type.</span>
                 </div>
 
                 <div className={styles.dropdownGrid}>
-                  {industryUseCases.map((item) => (
-                    <button
-                      key={item.label}
-                      type="button"
-                      className={styles.dropdownItem}
-                      onClick={() => setSelectedPdf(item)}
-                    >
-                      <strong>{item.label}</strong>
-                      <span>{item.description}</span>
-                    </button>
-                  ))}
+                  {industryUseCases.map((item) => {
+                    const Icon = item.icon;
+
+                    return (
+                      <button
+                        key={item.label}
+                        type="button"
+                        className={styles.dropdownItem}
+                        onClick={() => {
+                          setIsIndustryOpen(false);
+                          setSelectedPdf(item);
+                        }}
+                      >
+                        <span className={styles.industryIcon}>
+                          <Icon className={styles.industryIconSvg} />
+                        </span>
+
+                        <span className={styles.industryText}>
+                          <strong>{item.label}</strong>
+                          <span>{item.description}</span>
+                        </span>
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
             </div>
@@ -174,20 +238,30 @@ export function Navbar() {
           <div className={styles.mobileGroup}>
             <p>Industries</p>
 
-            {industryUseCases.map((item) => (
-              <button
-                key={item.label}
-                type="button"
-                className={styles.mobileSubItem}
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  setSelectedPdf(item);
-                }}
-              >
-                <strong>{item.label}</strong>
-                <span>{item.description}</span>
-              </button>
-            ))}
+            {industryUseCases.map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <button
+                  key={item.label}
+                  type="button"
+                  className={styles.mobileSubItem}
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    setSelectedPdf(item);
+                  }}
+                >
+                  <span className={styles.mobileIndustryIcon}>
+                    <Icon className={styles.industryIconSvg} />
+                  </span>
+
+                  <span className={styles.mobileIndustryText}>
+                    <strong>{item.label}</strong>
+                    <span>{item.description}</span>
+                  </span>
+                </button>
+              );
+            })}
           </div>
 
           <div className={styles.mobileButtons}>

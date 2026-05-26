@@ -38,7 +38,7 @@ export function SiteFooter() {
               <ul className="space-y-2 text-gray-400 text-sm">
                 <li>
                   <Link
-                    href="#features"
+                    href="/#features"
                     className="hover:text-[#25D366] transition"
                   >
                     Features
@@ -47,7 +47,7 @@ export function SiteFooter() {
 
                 <li>
                   <Link
-                    href="#pricing"
+                    href="/#pricing"
                     className="hover:text-[#25D366] transition"
                   >
                     Price
@@ -70,14 +70,14 @@ export function SiteFooter() {
                   </Link>
                 </li>
 
-                <li>
+                {/* <li>
                   <Link
                     href="/careers"
                     className="hover:text-[#25D366] transition"
                   >
                     Careers
                   </Link>
-                </li>
+                </li> */}
 
                 <li>
                   <button
@@ -95,7 +95,14 @@ export function SiteFooter() {
               <h4 className="font-semibold mb-4">Legal</h4>
 
               <ul className="space-y-2 text-gray-400 text-sm">
-                <li>Privacy Policy</li>
+                <li>
+                  <Link
+                    href="/privacy-policy"
+                    className="hover:text-[#25D366] transition"
+                  >
+                    Privacy Policy
+                  </Link>
+                </li>
                 <li>Terms</li>
               </ul>
             </div>

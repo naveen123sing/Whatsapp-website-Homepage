@@ -25,7 +25,7 @@ export function CtaSection() {
           <div className="flex justify-center gap-4 flex-wrap">
             <button
               type="button"
-              className="px-8 py-4 rounded-xl bg-[#25D366] hover:bg-[#20b558] transition"
+              className=" cursor-pointer px-8 py-4 rounded-xl bg-[#25D366] hover:bg-[#20b558] transition"
               onClick={() => setOpenModal(true)}
             >
               Start Free Trial

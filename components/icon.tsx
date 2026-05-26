@@ -138,6 +138,58 @@ export function TrendingUp(props: IconProps) {
   );
 }
 
+export function GraduationCap(props: IconProps) {
+  return (
+    <SvgIcon {...props}>
+      <path d="M22 10 12 5 2 10l10 5 10-5Z" />
+      <path d="M6 12v5c3 2 9 2 12 0v-5" />
+      <path d="M22 10v6" />
+    </SvgIcon>
+  );
+}
+
+export function HeartPulse(props: IconProps) {
+  return (
+    <SvgIcon {...props}>
+      <path d="M19.5 5.5a5 5 0 0 0-7.1 0L12 6l-.4-.5a5 5 0 0 0-7.1 7.1L12 20l7.5-7.4a5 5 0 0 0 0-7.1Z" />
+      <path d="M3 12h4l2-4 3 8 2-4h7" />
+    </SvgIcon>
+  );
+}
+
+export function Building2(props: IconProps) {
+  return (
+    <SvgIcon {...props}>
+      <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18" />
+      <path d="M2 22h20" />
+      <path d="M9 6h1" />
+      <path d="M14 6h1" />
+      <path d="M9 10h1" />
+      <path d="M14 10h1" />
+      <path d="M9 14h1" />
+      <path d="M14 14h1" />
+    </SvgIcon>
+  );
+}
+
+export function ShoppingBag(props: IconProps) {
+  return (
+    <SvgIcon {...props}>
+      <path d="M6 8h12l1 13H5L6 8Z" />
+      <path d="M9 8a3 3 0 0 1 6 0" />
+    </SvgIcon>
+  );
+}
+
+export function Plane(props: IconProps) {
+  return (
+    <SvgIcon {...props}>
+      <path d="M22 2 11 13" />
+      <path d="m22 2-7 20-4-9-9-4 20-7Z" />
+    </SvgIcon>
+  );
+}
+
 export function ChevronDown(props: IconProps) {
   return (
     <SvgIcon {...props}>
@@ -206,5 +258,4 @@ export function VerifiedBadge(props: IconProps) {
     </svg>
   );
 }
-
 
