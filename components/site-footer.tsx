@@ -103,7 +103,22 @@ export function SiteFooter() {
                     Privacy Policy
                   </Link>
                 </li>
-                <li>Terms</li>
+                <li>
+                  <Link
+                    href="/trems-conditions"
+                    className="hover:text-[#25D366] transition"
+                  >
+                    Terms & Conditions
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/refund-policy"
+                    className="hover:text-[#25D366] transition"
+                  >
+                    Refund Policy
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

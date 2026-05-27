@@ -5,29 +5,29 @@ const testimonials = [
   {
     quote:
       "CompuX helped us respond to leads faster and keep every WhatsApp conversation organized in one place.",
-    name: "Rohit Sharma",
-    role: "Growth Manager",
+    name: "Vaibhav Surana",
+    role: "Director",
     company: "Ranavilas",
     metric: "42% faster response",
-    image: "/dummyperson.jpg",
+    image: "/testimonials/vaibhav.png",
   },
   {
     quote:
       "The campaign tools made broadcasts simple for our team, and the dashboard gave us clear delivery insights.",
-    name: "Neha Verma",
-    role: "Operations Lead",
+    name: "Surendra Kumar Surana",
+    role: "Managing Director",
     company: "JANTV",
     metric: "3.2x campaign reach",
-    image: "/neha.png",
+    image: "/testimonials/Sam-sir-02.jpg",
   },
   {
     quote:
-      "Template automation saved hours every week. We now launch customer updates without waiting on manual work.",
-    name: "Amit Jain",
-    role: "Business Head",
+      "Template automation saved hours every week. We now launch customer updates without waiting on work.",
+    name: "Ajay Kumar Surana",
+    role: "MD",
     company: "IT-Neer",
     metric: "18 hrs saved weekly",
-    image: "/per3.png",
+    image: "/testimonials/ajay-sir-01.jpg",
   },
 ];
 
