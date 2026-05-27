@@ -18,7 +18,7 @@ const testimonials = [
     role: "Managing Director",
     company: "JANTV",
     metric: "3.2x campaign reach",
-    image: "/testimonials/Sam-sir-02.jpg",
+    image: "/testimonials/sam-sir-02.jpg",
   },
   {
     quote:
