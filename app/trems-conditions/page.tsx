@@ -1,79 +1,436 @@
 import { AnimatedBackground } from "../../components/animated-background/animated-background";
 import { Navbar } from "../../components/navbar/navbar";
-import { SiteFooter } from "../../components/site-footer";
+import { SiteFooter } from "../../components/site-footer/site-footer";
 
-const termsSections = [
-  {
-    title: "1. Acceptance Of Terms",
-    body: [
-      "By accessing this website or using Compucom Software Ltd. products, demos, support, WhatsApp Business API tools, campaign features, or related services, you agree to these Terms & Conditions.",
-      "If you are using the services on behalf of a company, you confirm that you are authorized to accept these terms for that company.",
-    ],
-  },
-  {
-    title: "2. Services We Provide",
-    body: [
-      "Compucom provides WhatsApp automation, campaign management, business messaging tools, customer engagement workflows, analytics, forms, templates, and related implementation or support services.",
-      "Some services may depend on third-party platforms such as WhatsApp, Meta, hosting providers, payment providers, and other integrations. Their rules and availability may affect how the service works.",
-    ],
-  },
-  {
-    title: "3. Account And Business Information",
-    body: [
-      "You agree to provide accurate, current, and complete information when requesting a demo, creating an account, activating a plan, or using our services.",
-      "You are responsible for keeping login credentials secure and for all activity that happens through your account or connected WhatsApp Business assets.",
-    ],
-  },
-  {
-    title: "4. Customer Consent And Message Compliance",
-    body: [
-      "You are responsible for collecting valid customer opt-ins, maintaining consent records, respecting opt-outs, and ensuring that your message content complies with applicable law and WhatsApp or Meta policies.",
-      "You must not use the platform for spam, misleading messages, illegal activity, harassment, abusive content, prohibited products, or any communication that violates platform rules.",
-    ],
-  },
-  {
-    title: "5. Payments, Plans, And Usage",
-    body: [
-      "Paid plans, setup fees, add-ons, usage charges, message credits, support packages, or custom services will be billed according to the pricing, invoice, order form, or agreement shared with you.",
-      "You are responsible for paying all applicable fees, taxes, and charges related to your selected plan or usage. Service access may be limited, suspended, or cancelled if payments are delayed.",
-    ],
-  },
-  {
-    title: "6. Intellectual Property",
-    body: [
-      "All website content, software, dashboards, workflows, designs, graphics, logos, documentation, and platform features are owned by Compucom or its licensors unless stated otherwise.",
-      "You may not copy, resell, modify, reverse engineer, or distribute our platform, designs, or materials without written permission.",
-    ],
-  },
-  {
-    title: "7. Service Availability",
-    body: [
-      "We aim to keep services stable and available, but we do not guarantee uninterrupted access at all times. Maintenance, upgrades, third-party outages, internet issues, or platform restrictions may affect availability.",
-      "We may update, improve, suspend, or discontinue parts of the service when required for security, compliance, performance, or business reasons.",
-    ],
-  },
-  {
-    title: "8. Limitation Of Liability",
-    body: [
-      "To the maximum extent permitted by law, Compucom will not be liable for indirect, incidental, special, consequential, or loss-of-profit damages related to use of the website or services.",
-      "Our total liability for any claim will be limited to the amount paid by you for the affected service during the period directly related to the claim, unless applicable law requires otherwise.",
-    ],
-  },
-  {
-    title: "9. Termination",
-    body: [
-      "You may stop using the services at any time. We may suspend or terminate access if you violate these terms, misuse the platform, fail to pay fees, or create legal, security, or operational risk.",
-      "After termination, your access to the platform may stop and certain data may be retained or deleted according to our Privacy Policy and operational requirements.",
-    ],
-  },
-  {
-    title: "10. Updates To Terms",
-    body: [
-      "We may update these Terms & Conditions from time to time. Updated terms will be posted on this page with a revised effective date.",
-      "Continued use of the website or services after changes are posted means you accept the updated terms.",
-    ],
-  },
-];
+type TermsBlock =
+  | {
+    type: "paragraph";
+    text: string;
+  }
+  | {
+    type: "heading";
+    text: string;
+  }
+  | {
+    type: "list";
+    items: string[];
+  };
+
+const termsSections: Array<{
+  title: string;
+  blocks: TermsBlock[];
+}> = [
+    {
+      title: "1. Acceptance Of Terms",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "By accessing or using CompuX services, you agree to be bound by these Terms & Conditions.",
+        },
+        {
+          type: "paragraph",
+          text: "If you are accepting these terms on behalf of an organization, you represent that you have authority to bind that organization.",
+        },
+      ],
+    },
+    {
+      title: "2. Services",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "CompuX provides software and related services including:",
+        },
+        {
+          type: "list",
+          items: [
+            "WhatsApp Business Platform integration",
+            "Campaign management",
+            "Broadcast messaging",
+            "Automation workflows",
+            "Customer engagement tools",
+            "Analytics and reporting",
+            "Template management",
+            "Contact management",
+            "Support services",
+          ],
+        },
+        {
+          type: "paragraph",
+          text: "Service availability may depend on third-party providers.",
+        },
+      ],
+    },
+    {
+      title: "3. Customer Accounts",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "Customers are responsible for:",
+        },
+        {
+          type: "list",
+          items: [
+            "Maintaining accurate information",
+            "Protecting account credentials",
+            "Restricting access to authorized users",
+            "Activities occurring under their accounts",
+          ],
+        },
+        {
+          type: "paragraph",
+          text: "Customers must promptly notify CompuX of unauthorized account activity.",
+        },
+      ],
+    },
+    {
+      title: "4. WhatsApp And Meta Compliance",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "Customers must comply with:",
+        },
+        {
+          type: "list",
+          items: [
+            "WhatsApp Business Platform Terms",
+            "WhatsApp Messaging Policies",
+            "Meta Platform Terms",
+            "Commerce Policies",
+            "Applicable laws and regulations",
+          ],
+        },
+        {
+          type: "paragraph",
+          text: "Customers acknowledge that Meta may independently suspend, restrict, or terminate WhatsApp assets for policy violations.",
+        },
+      ],
+    },
+    {
+      title: "4.1 WhatsApp Verified Badge Disclaimer",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "CompuX does not control, guarantee, influence, approve, or expedite the granting of any WhatsApp Verified Badge, Official Business Account (OBA) status, Meta Verified status, display name approval, quality rating, messaging limits, or other platform designations.",
+        },
+        {
+          type: "paragraph",
+          text: "All decisions regarding verification, account status, display names, messaging permissions, quality ratings, account reviews, and policy enforcement are made solely by Meta Platforms, Inc. and WhatsApp in accordance with their internal policies and procedures.",
+        },
+        {
+          type: "paragraph",
+          text: "Submission of information through CompuX, use of the CompuX platform, payment of fees, or use of WhatsApp Business Platform services does not guarantee approval of any verification request or special account status.",
+        },
+        {
+          type: "paragraph",
+          text: "CompuX shall not be liable for any rejection, delay, suspension, limitation, removal, or modification of verification status, messaging privileges, or account features imposed by Meta or WhatsApp.",
+        },
+      ],
+    },
+    {
+      title: "5. Customer Consent Responsibilities",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "Customers are solely responsible for:",
+        },
+        {
+          type: "list",
+          items: [
+            "Obtaining valid recipient consent",
+            "Maintaining opt-in records",
+            "Processing opt-outs",
+            "Managing communication preferences",
+            "Ensuring lawful messaging activities",
+          ],
+        },
+        {
+          type: "paragraph",
+          text: "CompuX does not verify customer consent records.",
+        },
+      ],
+    },
+    {
+      title: "6. Prohibited Activities",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "Customers may not use the platform for:",
+        },
+        {
+          type: "list",
+          items: [
+            "Spam",
+            "Fraudulent activity",
+            "Misleading communications",
+            "Illegal products or services",
+            "Harassment",
+            "Malware distribution",
+            "Unauthorized data collection",
+            "Violations of WhatsApp or Meta policies",
+          ],
+        },
+      ],
+    },
+    {
+      title: "7. Fees And Payments",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "Fees may include:",
+        },
+        {
+          type: "list",
+          items: [
+            "Subscription charges",
+            "Setup fees",
+            "Usage-based charges",
+            "Messaging fees",
+            "Professional services",
+          ],
+        },
+        {
+          type: "paragraph",
+          text: "Failure to pay applicable charges may result in suspension or termination.",
+        },
+      ],
+    },
+    {
+      title: "8. Customer Data Ownership",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "Customers retain ownership of all:",
+        },
+        {
+          type: "list",
+          items: [
+            "Contacts",
+            "Customer records",
+            "Messages",
+            "Templates",
+            "Campaign information",
+            "Workflow configurations",
+          ],
+        },
+        {
+          type: "paragraph",
+          text: "CompuX receives only the rights necessary to operate and provide services.",
+        },
+      ],
+    },
+    {
+      title: "9. Intellectual Property",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "CompuX, its software, trademarks, branding, website content, documentation, and platform features remain the property of Compucom Software Ltd. or its licensors.",
+        },
+        {
+          type: "paragraph",
+          text: "No ownership rights are transferred to customers.",
+        },
+      ],
+    },
+    {
+      title: "10. Service Availability",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "CompuX strives to maintain service availability but does not guarantee uninterrupted service.",
+        },
+        {
+          type: "paragraph",
+          text: "Availability may be affected by:",
+        },
+        {
+          type: "list",
+          items: [
+            "Maintenance activities",
+            "Infrastructure issues",
+            "Internet outages",
+            "Third-party service interruptions",
+            "Meta or WhatsApp platform limitations",
+          ],
+        },
+      ],
+    },
+    {
+      title: "11. Message Delivery Disclaimer",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "Message delivery depends on factors outside CompuX's control, including:",
+        },
+        {
+          type: "list",
+          items: [
+            "WhatsApp platform availability",
+            "Recipient device status",
+            "Network conditions",
+            "Customer configurations",
+            "Third-party service availability",
+          ],
+        },
+        {
+          type: "paragraph",
+          text: "CompuX does not guarantee delivery, timing, or receipt of any message.",
+        },
+      ],
+    },
+    {
+      title: "12. Data Processing",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "CompuX may process customer information solely for:",
+        },
+        {
+          type: "list",
+          items: [
+            "Service delivery",
+            "Support",
+            "Security",
+            "Analytics",
+            "Platform maintenance",
+          ],
+        },
+        {
+          type: "paragraph",
+          text: "Customers remain responsible for lawful collection and use of personal information.",
+        },
+      ],
+    },
+    {
+      title: "13. Suspension And Termination",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "We may suspend or terminate access if:",
+        },
+        {
+          type: "list",
+          items: [
+            "Terms are violated",
+            "Fees remain unpaid",
+            "Security risks arise",
+            "Legal compliance requires action",
+            "Platform misuse occurs",
+          ],
+        },
+        {
+          type: "paragraph",
+          text: "Customers may discontinue use at any time.",
+        },
+      ],
+    },
+    {
+      title: "14. Limitation Of Liability",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "To the maximum extent permitted by law, CompuX shall not be liable for indirect, incidental, special, consequential, or lost-profit damages arising from use of the services.",
+        },
+        {
+          type: "paragraph",
+          text: "Our total liability shall not exceed the amount paid by the customer for the affected services during the twelve months preceding the claim.",
+        },
+      ],
+    },
+    {
+      title: "15. Indemnification",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "Customers agree to indemnify and hold harmless Compucom Software Ltd., its employees, officers, and affiliates from claims arising from:",
+        },
+        {
+          type: "list",
+          items: [
+            "Customer content",
+            "Messaging activities",
+            "Policy violations",
+            "Unlawful communications",
+            "Breach of these Terms",
+          ],
+        },
+      ],
+    },
+    {
+      title: "16. Governing Law",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "These Terms shall be governed by and construed in accordance with the laws of India.",
+        },
+        {
+          type: "paragraph",
+          text: "Courts having jurisdiction at Jaipur, Rajasthan, India shall have exclusive jurisdiction over disputes arising from these Terms.",
+        },
+      ],
+    },
+    {
+      title: "17. Changes To Terms",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "We may modify these Terms from time to time.",
+        },
+        {
+          type: "paragraph",
+          text: "Updated versions will be published with a revised effective date.",
+        },
+        {
+          type: "paragraph",
+          text: "Continued use of services constitutes acceptance of revised terms.",
+        },
+      ],
+    },
+    {
+      title: "18. Contact Us",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "General Support : support@compux.in",
+        },
+        {
+          type: "paragraph",
+          text: "Privacy Requests : privacy@compux.in",
+        },
+        {
+          type: "paragraph",
+          text: "Grievance Officer : grievance@compux.in",
+        },
+        {
+          type: "paragraph",
+          text: "Website : https://compux.in",
+        },
+      ],
+    },
+  ];
+
+function renderBlock(block: TermsBlock) {
+  if (block.type === "heading") {
+    return (
+      <h3 key={block.text} className="pt-2 text-md font-semibold text-white">
+        {block.text}
+      </h3>
+    );
+  }
+
+  if (block.type === "list") {
+    return (
+      <ul key={block.items.join("|")} className="pl-7">
+        {block.items.map((item) => (
+          <li key={item} className="list-disc marker:text-[#25D366]">
+            {item}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
+  return <p key={block.text}>{block.text}</p>;
+}
 
 export default function TermsConditionsPage() {
   return (
@@ -85,6 +442,10 @@ export default function TermsConditionsPage() {
 
         <section className="container mx-auto px-6 pb-14 pt-36">
           <div>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-[#25D366]">
+              CompuX - A Product of Compucom Software Ltd.
+            </p>
+
             <h1 className="text-5xl font-extrabold leading-tight md:text-7xl">
               Terms &
               <span className="bg-linear-to-r from-green-400 to-emerald-200 bg-clip-text text-transparent">
@@ -93,10 +454,11 @@ export default function TermsConditionsPage() {
               </span>
             </h1>
 
-            <p className="mt-7 text-lg leading-8 text-gray-400">
-              Welcome to Compucom. These Terms & Conditions explain the rules
-              for accessing our website and using our WhatsApp Business API,
-              automation, campaign, and customer engagement services.
+            <p className="mt-7 text-md text-gray-400">
+              These Terms & Conditions explain the rules for accessing and
+              using CompuX services, including WhatsApp Business Platform
+              integration, campaign management, automation workflows, and
+              customer engagement tools.
             </p>
 
             <p className="mt-5 text-sm text-gray-500">
@@ -105,7 +467,7 @@ export default function TermsConditionsPage() {
           </div>
         </section>
 
-        <section className="container mx-auto px-6 pb-20">
+        <section className="container mx-auto px-6">
           <div className="divide-y divide-white/10 border-y border-white/10">
             {termsSections.map((section) => (
               <article key={section.title} className="py-8">
@@ -113,22 +475,11 @@ export default function TermsConditionsPage() {
                   {section.title}
                 </h2>
 
-                <div className="mt-5 space-y-4 text-base leading-8 text-gray-400">
-                  {section.body.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
+                <div className="mt-5 space-y-1 text-base text-gray-400">
+                  {section.blocks.map(renderBlock)}
                 </div>
               </article>
             ))}
-
-            <article className="py-8">
-              <h2 className="text-2xl font-bold text-white">Contact Us</h2>
-
-              <p className="mt-5 text-base leading-8 text-gray-400">
-                If you have questions about these Terms & Conditions, please
-                contact us through the website contact form or Book Demo form.
-              </p>
-            </article>
           </div>
         </section>
 

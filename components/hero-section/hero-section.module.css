@@ -117,6 +117,16 @@
   transition: all 0.2s ease;
 }
 
+@media (min-width: 1024px) and (max-width: 1399px) {
+  .cardGlowPurple {
+    right: -2.25rem;
+  }
+
+  .cardGlowBlue {
+    left: -2.25rem;
+  }
+}
+
 @keyframes cardGlowPulse {
   0%,
   100% {

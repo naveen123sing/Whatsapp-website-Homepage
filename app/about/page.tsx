@@ -6,7 +6,7 @@ import { AnimatedBackground } from "../../components/animated-background/animate
 import { BookDemoModal } from "../../components/book-demo/book-demo-modal";
 import { Navbar } from "../../components/navbar/navbar";
 import { TrustedSection } from "../../components/trusted-section/trusted-section";
-import { SiteFooter } from "../../components/site-footer";
+import { SiteFooter } from "../../components/site-footer/site-footer";
 
 const trialModal = {
     title: "Start Your Free Trial",
@@ -28,7 +28,7 @@ export default function AboutUs() {
                             About
                             <span className="bg-linear-to-r from-green-400 to-emerald-200 bg-clip-text text-transparent">
                                 {" "}
-                                Compucom
+                                Us
                             </span>
                         </h1>
 

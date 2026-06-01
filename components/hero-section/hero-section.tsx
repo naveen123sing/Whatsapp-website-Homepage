@@ -31,7 +31,7 @@ export function HeroSection() {
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#25D366]/30 bg-[#25D366]/10 mb-6 animate-scale-in">
               <Sparkles className="w-4 h-4 text-[#25D366] animate-rotate-slow" />
               <span className="text-sm text-gray-300">
-                Official WhatsApp Cloud API
+                Built On Official Whatsapp Business Cloud API
               </span>
             </div>
 
@@ -154,7 +154,7 @@ export function HeroSection() {
 
                 <div>
                   <p className="text-sm">98% Delivered</p>
-                  <p className="text-xs text-gray-400">+2.4K today</p>
+                  <p className="text-xs text-gray-400">Quick</p>
                 </div>
               </div>
             </div>
@@ -166,8 +166,8 @@ export function HeroSection() {
                 </div>
 
                 <div>
-                  <p className="text-sm">+156% ROI</p>
-                  <p className="text-xs text-gray-400">This month</p>
+                  <p className="text-sm">100% Growth</p>
+                  <p className="text-xs text-gray-400">Every Day</p>
                 </div>
               </div>
             </div>

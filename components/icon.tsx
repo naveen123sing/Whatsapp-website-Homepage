@@ -226,6 +226,42 @@ export function ExternalLink(props: IconProps) {
   );
 }
 
+export function Facebook(props: IconProps) {
+  return (
+    <SvgIcon {...props}>
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3.5l.5-4h-4V7a1 1 0 0 1 1-1h3V2Z" />
+    </SvgIcon>
+  );
+}
+
+export function Instagram(props: IconProps) {
+  return (
+    <SvgIcon {...props}>
+      <rect width="18" height="18" x="3" y="3" rx="5" />
+      <circle cx="12" cy="12" r="3.5" />
+      <path d="M17.5 6.5h.01" />
+    </SvgIcon>
+  );
+}
+
+export function Linkedin(props: IconProps) {
+  return (
+    <SvgIcon {...props}>
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z" />
+      <rect width="4" height="12" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
+    </SvgIcon>
+  );
+}
+
+export function Twitter(props: IconProps) {
+   return (
+    <SvgIcon {...props}>
+      <path d="M18.9 2H21l-6.5 7.4L22 22h-6.9l-5.4-7.1L3.5 22H1.4l7-8L2 2h7l4.9 6.5L18.9 2Zm-1.2 18h1.9L8 3.9H6.1L17.7 20Z" />
+    </SvgIcon>
+  );
+}
+
 export function CloseIcon(props: IconProps) {
   return (
     <SvgIcon {...props}>
@@ -258,4 +294,3 @@ export function VerifiedBadge(props: IconProps) {
     </svg>
   );
 }
-

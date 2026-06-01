@@ -14,7 +14,7 @@ const featuresData = [
       "Automate your WhatsApp business with smart replies, broadcasts, and follow-ups that feel personal.",
     features: ["Smart Campaign Automation", "Real-Time Message Preview", "Bulk campaign broadcasting", "Analytics Dashboard", "Secure Messaging Platform"],
     tone: "green",
-    image: "/featuresectionimg/campignimg.png",
+    image: "/featuresectionimg/capgin1.png",
   },
   {
     icon: Bot,

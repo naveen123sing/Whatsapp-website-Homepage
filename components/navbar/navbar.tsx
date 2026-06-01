@@ -94,25 +94,25 @@ export function Navbar() {
     };
   }, [isIndustryOpen]);
 
-  useEffect(() => {
-    if (!selectedPdf) {
-      return;
-    }
+  // useEffect(() => {
+  //   if (!selectedPdf) {
+  //     return;
+  //   }
 
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setSelectedPdf(null);
-      }
-    };
+  //   const handleKeyDown = (event: KeyboardEvent) => {
+  //     if (event.key === "Escape") {
+  //       setSelectedPdf(null);
+  //     }
+  //   };
 
-    document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", handleKeyDown);
+  //   document.body.style.overflow = "hidden";
+  //   window.addEventListener("keydown", handleKeyDown);
 
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [selectedPdf]);
+  //   return () => {
+  //     document.body.style.overflow = "";
+  //     window.removeEventListener("keydown", handleKeyDown);
+  //   };
+  // }, [selectedPdf]);
 
   return (
     <>
@@ -120,10 +120,10 @@ export function Navbar() {
         <div className={styles.container}>
           <Link href="/" className={styles.logo}>
             <Image
-              src="/Logo4.png"
+              src="/CompuLogo5 1.svg"
               alt="CompuX"
-              width={140}
-              height={98}
+              width={100}
+              height={58}
               className={styles.logoImage}
               priority
             />
@@ -173,10 +173,10 @@ export function Navbar() {
                         key={item.label}
                         type="button"
                         className={styles.dropdownItem}
-                        onClick={() => {
-                          setIsIndustryOpen(false);
-                          setSelectedPdf(item);
-                        }}
+                        // onClick={() => {
+                        //   setIsIndustryOpen(false);
+                        //   setSelectedPdf(item);
+                        // }}
                       >
                         <span className={styles.industryIcon}>
                           <Icon className={styles.industryIconSvg} />
@@ -195,9 +195,9 @@ export function Navbar() {
           </div>
 
           <div className={styles.buttons}>
-            <button type="button" className={styles.loginButton}>
+            {/* <button type="button" className={styles.loginButton}>
               Login
-            </button>
+            </button> */}
 
             <button
               type="button"

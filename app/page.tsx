@@ -7,7 +7,7 @@ import { FeaturesSection } from "../components/features-section/features-section
 import { HeroSection } from "../components/hero-section/hero-section";
 import { Navbar } from "../components/navbar/navbar";
 import { PricingCard } from "../components/pricing-section";
-import { SiteFooter } from "../components/site-footer";
+import { SiteFooter } from "../components/site-footer/site-footer";
 import { TestimonialSection } from "../components/testimonial-section/testimonial-section";
 import { TrustedSection } from "../components/trusted-section/trusted-section";
 
@@ -36,11 +36,14 @@ export default function Home() {
 
             <PricingCard
               name="Starter"
-              price="Free"
-              period=" 7days"
+              price="₹ 2k"
+              period="month"
+              badge="7-Day Free Trial"
               features={[
-                "1 WhatsApp Number",
-                "Basic Automation",
+                "Basic Campaign Manager",
+                "Manual Template Creation",
+                "Basic Report Dashboard",
+                "Basic Contact Mangement",
                 "1000 Messages",
                 "Email Support",
               ]}
@@ -48,13 +51,18 @@ export default function Home() {
 
             <PricingCard
               name="Professional"
-              price="Rs 5k"
+              price="₹ 5k"
               period="month"
               highlighted={true}
               features={[
-                "5 WhatsApp Numbers",
+                "WhatsApp Chat System",
+                "Advanced Campaign Manager",
+                "AI Template Creation",
+                "Manual Template Creation",
+                "Advanced Reports & Analytics",
                 "Advanced Automation",
                 "10000 Messages",
+                "Basic Chatbot",
                 "Priority Support",
               ]}
             />
@@ -64,7 +72,12 @@ export default function Home() {
               price="Custom"
               period="month"
               features={[
-                "Unlimited Numbers",
+                "AI-Powered Chatbot",
+                "Advanced Campaign Automation",
+                "AI + Manual Template Creation",
+                "Custom Reports & Dashboards",
+                "API Integrations",
+                "Dedicated Account Manager",
                 "Custom Integrations",
                 "Unlimited Messages",
                 "24/7 Support",

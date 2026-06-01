@@ -16,11 +16,20 @@ interface PricingCardProps {
     period: string;
     features: string[];
     highlighted?: boolean;
+    badge?: string;
     delay?: number;
 }
 
-export function PricingCard({ name, price, period, features, highlighted = false }: PricingCardProps) {
+export function PricingCard({
+    name,
+    price,
+    period,
+    features,
+    highlighted = false,
+    badge,
+}: PricingCardProps) {
     const [openModal, setOpenModal] = useState(false);
+    const badgeText = highlighted ? "Most Popular" : badge;
 
 
     return (
@@ -31,10 +40,9 @@ export function PricingCard({ name, price, period, features, highlighted = false
                     : "bg-linear-to-br from-white/5 to-white/2 border-white/10 hover:border-[#25D366]/50"
                     }`}
             >
-                {/* MOST POPULAR */}
-                {highlighted && (
+                {badgeText && (
                     <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-linear-to-br from-[#25D366] to-[#20B558] text-xs text-white">
-                        Most Popular
+                        {badgeText}
                     </div>
                 )}
 
